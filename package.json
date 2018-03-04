@@ -1,0 +1,33 @@
+{
+  "name": "wedding_day",
+  "version": "1.0.0",
+  "description": "As a <blank>, I want to <blank>, so that I can <blank>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiyentam/wedding_day.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aiyentam/wedding_day/issues"
+  },
+  "homepage": "https://github.com/aiyentam/wedding_day#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "hbs": "^4.0.1",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.0.8",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0"
+  }
+}
