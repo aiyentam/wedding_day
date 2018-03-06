@@ -1,0 +1,15 @@
+<h2>Please Login Here:</h2>
+{{#if message}}
+  <div>{{message}}</div>
+{{/if}}
+  <form method="post" action="/login">
+    <div>
+      <label for="email">Email:</label>
+      <input type="text" name="email" id="email">
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="text" name="password" id="password">
+    </div>
+    <input type="submit">
+  </form>
