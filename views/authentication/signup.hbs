@@ -1,15 +1,15 @@
 <h2>Please Sign Up Here:</h2>
 {{#if message}}
-  <div>{{message}}</div>
+<div>{{message}}</div>
 {{/if}}
-  <form method="post" action="/signup">
-    <div>
-      <label for="email">Email:</label>
-      <input type="text" name="email" id="email">
-    </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="text" name="password" id="password">
-    </div>
-    <input type="submit">
-  </form>
+<form method="post" action="/signup">
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email">
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+  </div>
+  <input type="submit">
+</form>

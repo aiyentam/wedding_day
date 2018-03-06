@@ -1,4 +1,4 @@
-const mongoose = require('../db/connection')
+const mongoose = require("../db/connection");
 const imageSchema = new mongoose.Schema({
   imageUrl: {
     type: String,
@@ -11,9 +11,9 @@ const imageSchema = new mongoose.Schema({
   upload_date: {
     type: Date,
     default: Date.now
-  } 
-})
+  }
+});
 
-const Image = mongoose.model('Image', imageSchema)
+const Image = mongoose.model("Image", imageSchema);
 
-module.exports = Image
+module.exports = Image;
