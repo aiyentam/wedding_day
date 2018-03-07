@@ -38,7 +38,7 @@ app.set("view engine", "hbs");
 app.use(parser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
-app.use(express.static(".public"));
+app.use(express.static("./public"));
 
 app.use(flash());
 
@@ -64,12 +64,21 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.use("/link", linkController);
+app.use("/photo", linkController);
 app.use("/", userController);
 
 app.post("/upload", () => (req, res) => {
-  res.send("test");
-});
+  upload(req, res, (err) => {
+    if(err){
+      res.render('index', {
+        msg: err
+      });
+    } else {
+      console.log(req.file)
+      res.send('test')
+    }
+  })
+})
 
 app.listen(8080, () => {
   console.log("testing");

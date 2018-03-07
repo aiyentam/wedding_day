@@ -8,21 +8,35 @@
   <title>Wedding Day</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lovers+Quarrel|Tangerine|" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
   <header>
     <nav>
-      <div class="nav-wrapper teal lighten-3 new-nav-height">
-        <img src="../public/image/logo.png" width="170px" height="130px">
+      <div class="nav-wrapper teal lighten-3">
+        <a class="navbar-brand" href="/"><img src="image/logo.png"></a>
         <ul class="right">
+          {{#if currentUser}}
+          <li>
+            <a href="/logout">Logout {{currentUser.local.email}}</a> 
+          </li>
+          {{else}}
+          <li>
+            <a href="/login">Login</a>
+          </li>
+          <li>
+            <a href="/signup">Signup</a>
+          </li>
+          {{/if}}
           <li>
             <a href="#">
               <i class="material-icons">account_circle</i>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="/photo/new">
               <i class="material-icons">add</i>
             </a>
           </li>
@@ -36,10 +50,13 @@
     </nav>
   </header>
 
-  {{{body}}}
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  {{{body}}}
 </body>
+<footer>
+
+</footer>
 
 </html>
