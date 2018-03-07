@@ -1,25 +1,13 @@
-<body>
-  <h2>Upload a New Image:</h2>
-  <form action="new" method="post">
-    <label for="comment">Comment:</label>
-    <input type="text" name="comment">
-      <br>
-    <label for="date">Date:</label>
-    <input type="text" name="upload_date" value="{{date}}">
-      <br>
-    <input type="submit" value="Submit">
-  </form>
-  {{!-- {{#if typeof messge != 'undefined' ? message : ''}} {{/if}}
-  <form action="/upload" method="post" enctype="mutipart/form-data">
-    <div class="file-field input-field">
-      <div class="btn teal darken-1">
-        <span>File</span>
-        <input name="img" type="file" multiple>
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text" placeholder="Upload one or more files">
-      </div>
+{{#if typeof message != 'undefined' ? message : ''}} {{/if}}
+<form action="/upload" method="post" enctype="mutipart/form-data">
+  <div class="file-field input-field">
+    <div class="btn teal darken-1">
+      <span>File</span>
+      <input name="img" type="file" multiple>
     </div>
-    <button type="submit" class="btn">Submit</button>
-  </form> --}}
-</body>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text" placeholder="Upload one or more files">
+    </div>
+  </div>
+  <button type="submit" class="btn">Submit</button>
+</form>

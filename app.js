@@ -21,8 +21,23 @@ const storage = multer.diskStorage({
 
 //image upload
 const upload = multer({
-  storage: storage
+  storage: storage,
+  limits: { fileSize: 1000000 },
+  fileFilter: function(req, file, callback) {
+    checkFileType(file, callback);
+  }
 }).array("img");
+
+function checkFileType(file, callback) {
+  const filetypes = /jpeg|jpg|png/;
+  const extname = filetypes.test(path.extname(file.photoname).toLowerCase());
+  const mimetype = filetypes.test(file.mimetype);
+  if (extname && mimetype) {
+    return callback(null, true);
+  } else {
+    callback("This file is not an image.");
+  }
+}
 
 const app = express();
 
@@ -68,18 +83,23 @@ app.use("/photo", linkController);
 app.use("/", userController);
 
 app.post("/upload", () => (req, res) => {
-  upload(req, res, (err) => {
-    if(err){
-      res.render('index', {
+  upload(req, res, err => {
+    if (err) {
+      res.render("index", {
         msg: err
       });
     } else {
-      console.log(req.file)
-      res.send('test')
+      console.log(req.file);
+      res.send("test");
     }
-  })
-})
+  });
+});
+
+app.all("/secret", function(req, res, next) {
+  console.log("Accessing the secret page ...");
+  next();
+});
 
 app.listen(8080, () => {
-  console.log("testing");
+  console.log("Server is running");
 });

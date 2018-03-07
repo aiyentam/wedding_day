@@ -27,7 +27,7 @@ module.exports = function(passport) {
             return callback(
               null,
               false,
-              req.flash("signupMessage", "This email is taken!")
+              req.flash("signupMessage", "This email is taken")
             );
           } else {
             let newUser = new User();
@@ -54,6 +54,7 @@ module.exports = function(passport) {
       },
       function(req, email, password, callback) {
         User.findOne({ "local.email": email }, function(err, user) {
+          console.log(user);
           if (err) {
             return callback(err);
           }
@@ -65,11 +66,9 @@ module.exports = function(passport) {
             );
           }
           if (!user.validPassword(password)) {
-            return callback(
-              null,
-              false,
-              req.flash("loginMessage", "Incorrect Password.")
-            );
+            return callback(null, false, {
+              message: "Incorrect Password."
+            });
           }
           return callback(null, user);
         });

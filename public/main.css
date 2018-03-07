@@ -1,36 +1,42 @@
+body {
+  background: #fffefc;
+}
+
 /* nav */
 nav .nav-wrapper {
-  height: 95px;
+  height: 70px;
+  position: fixed;
+  width: 100vw;
+  top: 0px;
 }
-
+/* 
 nav ul a {
-  padding-top: 15px;
-}
+  padding-top: 5px;
+} */
 
 nav ul a:hover {
-  height: 100px;
+  height: 70px;
 }
 
 /* header */
 img {
-  height: 90px;
-  width: 133px;
+  height: 65px;
+  width: 90px;
   padding-top: 5px;
-  padding-left: 15px;
+  padding-left: 10px;
 }
 
 h2 {
-  font-family: 'Tangerine', cursive;
-  font-size: 100px;
+  font-family: "Tangerine", cursive;
+  font-size: 75px;
   text-shadow: 1px 1px 2px black;
-  color: #FFFFFA;
-  padding-top: 20px;
+  color: white;
   padding-left: 10px;
+  margin: 10px;
 }
 
 /* image carousel */
 .carousel {
-  margin-top: 25px;
   padding-top: 25px;
 }
 
@@ -38,9 +44,9 @@ h2 {
   position: center;
 }
 
-.carousel .carousel-item>img {
-  width: 1200px;
-  height: 800px;
+.carousel .carousel-item > img {
+  width: 800px;
+  height: 550px;
 }
 
 /* form */
@@ -51,7 +57,17 @@ form {
 
 label {
   font-size: 55px;
-  font-family: 'Lovers Quarrel', cursive;
+  font-family: "Lovers Quarrel", cursive;
   text-shadow: 1px 1px 2px black;
   color: white;
+}
+
+/* footer */
+.footer-wrapper {
+  color: white;
+  height: 50px;
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
+  padding-left: 5px;
 }

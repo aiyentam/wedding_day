@@ -3,14 +3,14 @@ const router = express.Router();
 
 const Images = require("../models/images");
 
-//get photo
+// //get photo
 router.get("/", (req, res) => {
   Images.find({}).then(photo => {
     res.render("index", { photo });
   });
 });
 
-//add photo
+//add new photo
 router.post("/new", (req, res) => {
   Images.create({
     img: req.body.image,
@@ -26,29 +26,34 @@ router.get("/new", (req, res) => {
   res.render("new", { date });
 });
 
+router.get("/new", (req, res) => {
+  res.render("new");
+});
+
 router.get("/edit/:id", (req, res) => {
-  Images.findById(req.params.id).then(link => {
-    res.render("edit", photo)
-  })
-})
+  Images.findOne({ _id: req.params.id }).then(photo => {
+    res.render("edit", photo);
+  });
+});
 
 router.put("/:id", (req, res) => {
   Images.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).then(
-    link=> {
-      res.redirect("/photo")
+    photo => {
+      res.redirect("/photo");
     }
-  )
+  );
 });
 
 router.delete("/:id", (req, res) => {
   Images.findOneAndRemove({ _id: req.params.id }).then(() => {
     res.redirect("/photo");
-  });s
+  });
+  s;
 });
 
 router.get("/:id", (req, res) => {
   Images.findOne({ _id: req.params.id }).then(photo => {
-    res.render("photo/show", photo);
+    res.render("show", photo);
   });
 });
 
