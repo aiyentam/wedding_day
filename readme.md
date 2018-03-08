@@ -15,4 +15,4 @@ A stress-free place for all your wedding essentials!
 
 # Check out Wedding App Video
 
-YouTube: https://www.youtube.com/watch?v=NkesZ9xv5mw&feature=youtu.be
+YouTube: https://www.youtube.com/watch?v=NkesZ9xv5mw
