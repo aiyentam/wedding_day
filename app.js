@@ -6,7 +6,6 @@ const flash = require("connect-flash");
 const session = require("express-session");
 const morgan = require("morgan");
 const path = require("path");
-const multer = require("multer");
 
 const app = express();
 
@@ -19,10 +18,10 @@ app.use(parser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
 //static folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 //passport & flash
-app.use(session({secret: "hashing"}));
+app.use(session({ secret: "hashing" }));
 app.use(flash());
 
 require("./config/passport")(passport);
@@ -51,6 +50,7 @@ app.all("/secret", function(req, res, next) {
   next();
 });
 
-app.listen(8080, () => {
-  console.log("Server is running");
-});
+app.set("port", process.env.PORT || 8080);
+app.listen(app.get("port"), () =>
+  console.log(`Server is running ${app.get("port")}`)
+);
