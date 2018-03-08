@@ -1,5 +1,10 @@
 body {
-  background: #fffefc;
+  background: white;
+  background-image: url(image/blk_logo.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  background-origin: content-box;
 }
 /* error */
 .err-container {
@@ -14,6 +19,10 @@ body {
 }
 
 /* nav */
+.nav-wrapper {
+  background: #A39CA3;
+}
+
 nav .nav-wrapper {
   height: 70px;
   position: fixed;
@@ -21,12 +30,26 @@ nav .nav-wrapper {
   top: 0px;
 }
 
+nav ul a {
+  color: white;
+}
+
 nav ul a:hover {
   height: 70px;
 }
 
+.dropdown-content li a {
+  color: #92908e;
+  background: #FFFEFC;
+}
+
+
+.material-icons {
+  color: white;
+}
+
 /* header */
-img {
+#logo {
   height: 65px;
   width: 90px;
   padding-top: 5px;
@@ -37,8 +60,9 @@ h2 {
   font-family: "Tangerine", cursive;
   font-size: 75px;
   text-shadow: 1px 1px 2px black;
-  color: white;
+  color: #ecd9cb;
   padding-left: 10px;
+  padding-top: 10px;
   margin: 10px;
 }
 
@@ -65,7 +89,7 @@ label {
   font-size: 55px;
   font-family: "Lovers Quarrel", cursive;
   text-shadow: 1px 1px 2px black;
-  color: white;
+  color: #ecd9cb;
 }
 
 /* footer */
@@ -76,4 +100,25 @@ label {
   position: fixed;
   bottom: 0px;
   padding-left: 5px;
+  background: #A39CA3;
+}
+
+.btn {
+  background: #5F7C6A;
+}
+
+.btn a {
+  text-decoration: none;
+  color: white;
+}
+
+span a {
+  padding-left: 15px;
+}
+
+/* gallery */
+
+.uploadedImages {
+  max-height: 5%;
+  max-width: 5%;
 }

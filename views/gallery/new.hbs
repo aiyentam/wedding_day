@@ -1,15 +1,15 @@
 <h2>Upload Image:</h2>
 
 {{#if message}} {{/if}}
-<form action="/upload" method="post" enctype="multipart/form-data">
+<form action="/photo/upload" method="post" enctype="multipart/form-data">
   <div class="file-field input-field">
-    <div class="btn teal darken-1">
-      <span>File</span>
+    <div class="btn">
+      <span>File:</span>
       <input name="uploadedImages" type="file">
     </div>
     <div class="file-path-wrapper">
       <input class="file-path validate" type="text" placeholder="Upload one or more images here">
     </div>
   </div>
-  <button type="submit" class="btn">Submit</button>
+  <button type="submit" class="btn">Submit</a></button>
 </form>

@@ -46,26 +46,6 @@ app.use("/photo", linkController);
 const userController = require("./controllers/user");
 app.use("/authentication", userController);
 
-//multer engine
-const storage = multer.diskStorage({
-  destination: "public/uploads"
-});
-
-//images
-app.post("/upload", multer({storage: storage}).array('uploadedImages'),  (req, res) => {
-  console.log(req.files);
-  if(!req.files) {
-    console.log("No File! :(");
-    return res.send({
-      success: false
-    });
-  } else {
-    return res.send({
-      success: true
-    });
-  }
-});
-
 app.all("/secret", function(req, res, next) {
   console.log("Accessing the secret page ...");
   next();

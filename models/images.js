@@ -5,8 +5,7 @@ const imageSchema = new mongoose.Schema({
     require: true
   },
   comment: {
-    type: String,
-    require: true
+    type: String
   },
   upload_date: {
     type: Date,
