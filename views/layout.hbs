@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lovers+Quarrel|Tangerine|" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="/main.css">
 </head>
 
 <body>
@@ -30,19 +30,19 @@
     <nav>
       <div class="nav-wrapper teal lighten-3">
         <a class="navbar-brand" href="/">
-          <img src="image/logo.png">
+          <img src="/image/logo.png">
         </a>
         <ul class="right">
           {{#if currentUser}}
           <li>
-            <a href="/logout">Logout {{currentUser.local.email}}</a>
+            <a href="/authentication/logout">Logout {{currentUser.local.email}}</a>
           </li>
           {{else}}
           <li>
-            <a href="/login">Login</a>
+            <a href="/authentication/login">Login</a>
           </li>
           <li>
-            <a href="/signup">Signup</a>
+            <a href="/authentication/signup">Signup</a>
           </li>
           {{/if}}
           <li>

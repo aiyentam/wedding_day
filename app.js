@@ -8,64 +8,24 @@ const morgan = require("morgan");
 const path = require("path");
 const multer = require("multer");
 
-//multer engine
-const storage = multer.diskStorage({
-  destination: "./public/uploads/",
-  filename: function(req, file, callback) {
-    callback(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
-  }
-});
-
-//image upload
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 1000000 },
-  fileFilter: function(req, file, callback) {
-    checkFileType(file, callback);
-  }
-}).array("img");
-
-function checkFileType(file, callback) {
-  const filetypes = /jpeg|jpg|png/;
-  const extname = filetypes.test(path.extname(file.photoname).toLowerCase());
-  const mimetype = filetypes.test(file.mimetype);
-  if (extname && mimetype) {
-    return callback(null, true);
-  } else {
-    callback("This file is not an image.");
-  }
-}
-
 const app = express();
-
-//controller
-const linkController = require("./controllers/link");
-const userController = require("./controllers/user");
-
-app.use(express.static("./public"));
 
 app.use(morgan("dev"));
 
+//view engine, bodyparser, methodOverride
 app.set("view engine", "hbs");
+app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
-app.use(express.static("./public"));
+//static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
+//passport & flash
+app.use(session({secret: "hashing"}));
 app.use(flash());
 
 require("./config/passport")(passport);
-app.use(
-  session({
-    secret: "hashing",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-  })
-);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -74,25 +34,36 @@ app.use(function(req, res, next) {
   next();
 });
 
-//home router
+//path
 app.get("/", (req, res) => {
   res.render("index");
 });
 
+//controllers
+const linkController = require("./controllers/link");
 app.use("/photo", linkController);
-app.use("/", userController);
 
-app.post("/upload", () => (req, res) => {
-  upload(req, res, err => {
-    if (err) {
-      res.render("index", {
-        msg: err
-      });
-    } else {
-      console.log(req.file);
-      res.send("test");
-    }
-  });
+const userController = require("./controllers/user");
+app.use("/authentication", userController);
+
+//multer engine
+const storage = multer.diskStorage({
+  destination: "public/uploads"
+});
+
+//images
+app.post("/upload", multer({storage: storage}).array('uploadedImages'),  (req, res) => {
+  console.log(req.files);
+  if(!req.files) {
+    console.log("No File! :(");
+    return res.send({
+      success: false
+    });
+  } else {
+    return res.send({
+      success: true
+    });
+  }
 });
 
 app.all("/secret", function(req, res, next) {

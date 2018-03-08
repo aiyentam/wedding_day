@@ -1,6 +1,17 @@
 body {
   background: #fffefc;
 }
+/* error */
+.err-container {
+  padding: 25px;
+}
+.error {
+  color: white;
+  background: #ED4337;
+  border-radius: 3px;
+  padding: 5px;
+  width: 50%;
+}
 
 /* nav */
 nav .nav-wrapper {
@@ -9,10 +20,6 @@ nav .nav-wrapper {
   width: 100vw;
   top: 0px;
 }
-/* 
-nav ul a {
-  padding-top: 5px;
-} */
 
 nav ul a:hover {
   height: 70px;
@@ -52,7 +59,6 @@ h2 {
 /* form */
 form {
   margin: 25px;
-  padding: 45px;
 }
 
 label {

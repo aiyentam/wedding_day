@@ -3,31 +3,27 @@ const router = express.Router();
 
 const Images = require("../models/images");
 
-// //get photo
+//get photo
 router.get("/", (req, res) => {
   Images.find({}).then(photo => {
     res.render("index", { photo });
   });
 });
 
-//add new photo
+//images
 router.post("/new", (req, res) => {
   Images.create({
     img: req.body.image,
     comment: req.body.comment,
     upload_date: req.body.upload_date
   }).then(photo => {
-    res.redirect("/photo");
+    res.redirect("gallery/photo");
   });
 });
 
 router.get("/new", (req, res) => {
   const date = new Date().toDateString();
-  res.render("new", { date });
-});
-
-router.get("/new", (req, res) => {
-  res.render("new");
+  res.render("gallery/new", { date });
 });
 
 router.get("/edit/:id", (req, res) => {

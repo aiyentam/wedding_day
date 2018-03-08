@@ -1,5 +1,5 @@
 const LocalStrategy = require("passport-local").Strategy;
-const User = require("../models/User");
+const User = require("../models/user");
 
 module.exports = function(passport) {
   passport.serializeUser(function(user, callback) {
@@ -53,8 +53,8 @@ module.exports = function(passport) {
         passReqToCallback: true
       },
       function(req, email, password, callback) {
+        console.log(email);
         User.findOne({ "local.email": email }, function(err, user) {
-          console.log(user);
           if (err) {
             return callback(err);
           }
@@ -66,9 +66,9 @@ module.exports = function(passport) {
             );
           }
           if (!user.validPassword(password)) {
-            return callback(null, false, {
-              message: "Incorrect Password."
-            });
+            return callback(null, false,
+              req.flash("loginMessage", "Incorrect Password.")
+            );
           }
           return callback(null, user);
         });

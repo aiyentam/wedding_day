@@ -1,10 +1,12 @@
 <h2>Please Sign Up Here:</h2>
 
-{{#if message}}
-<div class="alert alert-danger">{{message}}</div>
-{{/if}}
+<div class="err-container">
+  {{#if message}}
+  <div class="error">{{message}}</div>
+  {{/if}}
+</div>
 
-<form method="post" action="/signup">
+<form method="post" action="/authentication/signup">
   <div class="form-group">
     <label for="email">Email:</label>
     <input class="form-control" type="text" name="email" id="email">
