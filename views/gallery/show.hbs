@@ -1,6 +1,18 @@
 <h2>Our Gallery:</h2>
 {{#each photos}}
-<div class="gallery">
-  <img class="uploadedImages" src="/uploads/{{imageUrl}}"/>
+<div class="gallery-container">
+  <div class="gallery">
+    <img class="uploadedImages" src="/uploads/{{imageUrl}}" />
+    <div class="editrmv">
+      <form action="/photo/{{this.id}}?_method=delete" method="post">
+        <input class="btn" type="submit" value="Remove">
+      </form>
+      <form action="/photo/edit/{{this.id}}?_method=edit" method="put">
+        <input class="btn" type="submit" value="Add Comment">
+      </form>
+    </div>
+  </div>
+  {{!--
+  <h3>Comment: {{this.comment}}</h3> FIX IT --}}
 </div>
 {{/each}}

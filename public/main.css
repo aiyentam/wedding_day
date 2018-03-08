@@ -3,7 +3,7 @@ body {
   background-image: url(image/blk_logo.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center; 
+  background-position: center;
   background-origin: content-box;
 }
 /* error */
@@ -12,7 +12,7 @@ body {
 }
 .error {
   color: white;
-  background: #ED4337;
+  background: #ed4337;
   border-radius: 3px;
   padding: 5px;
   width: 50%;
@@ -20,7 +20,7 @@ body {
 
 /* nav */
 .nav-wrapper {
-  background: #A39CA3;
+  background: #a39ca3;
 }
 
 nav .nav-wrapper {
@@ -40,9 +40,8 @@ nav ul a:hover {
 
 .dropdown-content li a {
   color: #92908e;
-  background: #FFFEFC;
+  background: #fffefc;
 }
-
 
 .material-icons {
   color: white;
@@ -64,6 +63,13 @@ h2 {
   padding-left: 10px;
   padding-top: 10px;
   margin: 10px;
+}
+
+h3 {
+  font-family: "Tangerine", cursive;
+  font-size: 55px;
+  text-shadow: 1px 1px 2px black;
+  color: #ecd9cb;
 }
 
 /* image carousel */
@@ -92,6 +98,10 @@ label {
   color: #ecd9cb;
 }
 
+.comment {
+  padding-left: 100px;
+}
+
 /* footer */
 .footer-wrapper {
   color: white;
@@ -100,11 +110,11 @@ label {
   position: fixed;
   bottom: 0px;
   padding-left: 5px;
-  background: #A39CA3;
+  background: #a39ca3;
 }
 
 .btn {
-  background: #5F7C6A;
+  background: #5f7c6a;
 }
 
 .btn a {
@@ -117,8 +127,17 @@ span a {
 }
 
 /* gallery */
-
 .uploadedImages {
-  max-height: 5%;
-  max-width: 5%;
+  max-height: 20%;
+  max-width: 20%;
+}
+
+.gallery {
+  padding: 25px;
+  display: inline;
+  grid-template-columns: auto auto auto auto;
+}
+
+.editrmv {
+  display: inline-flex;
 }
