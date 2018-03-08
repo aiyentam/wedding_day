@@ -1,7 +1,7 @@
-const userConnection = require("mongoose");
+// const userConnection = require("mongoose");
 
-userConnection.connect("mongodb://localhost/passport");
+// userConnection.connect("mongodb://localhost/passport");
 
-userConnection.Promise = Promise;
+// userConnection.Promise = Promise;
 
-module.exports = userConnection;
+// module.exports = userConnection;
