@@ -12,3 +12,7 @@ A stress-free place for all your wedding essentials!
 # npm node-packages
 
 * multer
+
+# Check out Wedding App Video
+
+YouTube: https://www.youtube.com/watch?v=NkesZ9xv5mw&feature=youtu.be
