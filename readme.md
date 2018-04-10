@@ -16,4 +16,4 @@ A stress-free place for all your wedding essentials!
 # Check out Wedding App Video
 
 YouTube: https://www.youtube.com/watch?v=NkesZ9xv5mw
-Heroku: https://infinite-sierra-97558.herokuapp.com/photo/show
+Heroku: https://infinite-sierra-97558.herokuapp.com/
