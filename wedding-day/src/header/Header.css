@@ -1,0 +1,18 @@
+.nav-wrapper {
+  background: #a39ca3;
+}
+
+nav .nav-wrapper {
+  height: 70px;
+  position: fixed;
+  width: 100vw;
+  top: 0px;
+}
+
+nav ul a {
+  color: white;
+}
+
+nav ul a:hover {
+  height: 70px;
+}
